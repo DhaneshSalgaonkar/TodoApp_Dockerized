@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route('/submit', methods=['POST'])
 def submit():
     data = request.json
-    print('Received data:', data)
+    print('Received data: ', data)
     return jsonify({"message": "Data processed successfully!", "data": data})
 
 if __name__ == '__main__':
