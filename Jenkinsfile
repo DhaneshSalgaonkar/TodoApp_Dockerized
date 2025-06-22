@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Setup Backend Environment') {
+        stage('Setup Backend Environment!') {
             steps {
                 dir('backend') {
                     sh '''
@@ -22,7 +22,7 @@ pipeline {
                 dir('frontend') {
                     sh '''
                         npm install
-                        pm2 restart express-frontend || pm2 start app.js express-frontend
+                        pm2 restart express-frontend || pm2 start express-frontend
                     '''
                 }
             }
