@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
+const URL = process.env.BackendURL || 'http://localhost:5000/submit';
 // Middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -21,7 +21,7 @@ app.post('/submit', (req, res) => {
     const data = req.body;
     console.log('Form Data:', data);
 
-    fetch('http://backend:5000/submit', {
+    fetch(URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
