@@ -11,7 +11,7 @@ pipeline {
                         python3 -m venv myenv
                         . myenv/bin/activate
                         pip install -r requirements.txt
-                        pm2 restart flask-backend || pm2 start flask-backend
+                        pm2 restart flask-backend || pm2 start app.py flask-backend
                     '''
                 }
             }
@@ -22,7 +22,7 @@ pipeline {
                 dir('frontend') {
                     sh '''
                         npm install
-                        pm2 restart express-frontend || pm2 start express-frontend
+                        pm2 restart express-frontend || pm2 start app.js express-frontend
                     '''
                 }
             }
